@@ -1,9 +1,18 @@
 ﻿using MasterDetailTabbed.Mvvm;
 using Prism.Navigation;
+using System;
+
+/* Release notes
+ * -------------
+ * 08/10/2019 13:45
+ * Updated to Prism release v7.2.0.1367
+ * https://github.com/PrismLibrary/Prism/releases/tag/v7.2.0.1367
+ * [Enhancement] Implement IInitialize (BREAKING) #1748
+ * https://github.com/PrismLibrary/Prism/issues/1748 */
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class BaseViewModel : ObservableObject, INavigationAware, IDestructible
+    public class BaseViewModel : ObservableObject, IInitialize, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
         protected INavigationParameters Parameters { get; set; }
@@ -42,14 +51,24 @@ namespace MasterDetailTabbed.ViewModels
             get => !IsBusy;
         }
 
+        public virtual void Initialize(INavigationParameters parameters)
+        {
+            Parameters = parameters;
+        }
+
+        [Obsolete("OnNavigatedFrom is deprecated by Prism w/ release 7.2.0.1367, please implement IInitialize instead.")]
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
         {
             Parameters = parameters;
         }
+
+        [Obsolete("OnNavigatedTo is deprecated by Prism w/ release 7.2.0.1367, please implement IInitialize instead.")]
         public virtual void OnNavigatedTo(INavigationParameters parameters)
         {
             Parameters = parameters;
         }
+
+        [Obsolete("OnNavigatingTo is deprecated by Prism w/ release 7.2.0.1367, please implement IInitialize instead.")]
         public virtual void OnNavigatingTo(INavigationParameters parameters)
         {
             Parameters = parameters;

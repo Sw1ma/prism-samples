@@ -4,7 +4,7 @@ namespace MasterDetailTabbed.ViewModels
 {
     public class TabBPageViewModel : BaseViewModel
     {
-        public TabBPageViewModel(INavigationService naigationService) : base(naigationService)
+        public TabBPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Tab B";
         }

@@ -5,7 +5,7 @@ namespace MasterDetailTabbed.ViewModels
 {
     public class NavBPageViewModel : BaseViewModel
     {
-        public NavBPageViewModel(INavigationService naigationService) : base(naigationService)
+        public NavBPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Page B";
             NavigateCommand = new DelegateCommand(Navigate);

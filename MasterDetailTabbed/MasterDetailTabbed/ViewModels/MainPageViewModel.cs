@@ -7,7 +7,7 @@ namespace MasterDetailTabbed.ViewModels
 {
     public class MainPageViewModel : BaseViewModel
     {
-        public MainPageViewModel(INavigationService naigationService) : base(naigationService)
+        public MainPageViewModel(INavigationService navigationService) : base(navigationService)
         { }
     }
 }

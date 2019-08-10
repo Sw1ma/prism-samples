@@ -1,12 +1,13 @@
-﻿using Prism.Commands;
+﻿using Prism.AppModel;
+using Prism.Commands;
 using Prism.Navigation;
 using System;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class NavAPageViewModel : BaseViewModel
+    public class NavAPageViewModel : BaseViewModel, IPageLifecycleAware
     {
-        public NavAPageViewModel(INavigationService naigationService) : base(naigationService)
+        public NavAPageViewModel(INavigationService navigationService) : base(navigationService)
         {
             Title = "Page A";
             NavigateCommand = new DelegateCommand(Navigate);
@@ -27,6 +28,7 @@ namespace MasterDetailTabbed.ViewModels
             { }
         }
 
+        [Obsolete("OnNavigatedTo is deprecated by Prism w/ release 7.2.0.1367, please implement IPageLifecycleAware instead.")]
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
@@ -35,5 +37,15 @@ namespace MasterDetailTabbed.ViewModels
                 IsVisible = Parameters.GetValue<bool>("args");
             }
         }
+
+        public void OnAppearing()
+        {
+            if (Parameters.ContainsKey("args")) {
+                IsVisible = Parameters.GetValue<bool>("args");
+            }
+        }
+
+        public void OnDisappearing()
+        { }
     }
 }
