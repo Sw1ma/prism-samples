@@ -8,7 +8,7 @@ pool:
   vmImage: 'macos-latest'
 
 variables:
-  buildConfiguration: 'Debug'
+  buildConfiguration: 'Release'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
