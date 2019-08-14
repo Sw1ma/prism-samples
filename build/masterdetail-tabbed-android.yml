@@ -3,7 +3,12 @@
 # Add steps that test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
 
+variables:
+  buildConfiguration: 'Debug'
+  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
+
 trigger: 
+  batch: true
   branches:
     include:
     - master
@@ -11,32 +16,31 @@ trigger:
   paths:
     include:
     - MasterDetailTabbed/*
-    
-pool:
-  vmImage: 'macos-latest'
-  demands:
-  - MSBuild
-  - Xamarin.Android
-  - JDK
-  - AndroidSDK
+ 
+jobs:
+- job: androidSample
+  displayName: MasterDetail with TabbedPage Android App    
+  pool:
+    vmImage: 'macos-latest'
+    demands:
+    - MSBuild
+    - Xamarin.Android
+    - JDK
+    - AndroidSDK
 
-workspace:
-  clean: all
-    
-steps:
-  - template: set-runtime.yml
+  workspace:
+    clean: all
   
+  steps:
+  - template: set-runtime.yml
+
   - template: prepare-build.yml
     parameters:
       solution: MasterDetailTabbed/MasterDetailTabbed.sln
 
-variables:
-  buildConfiguration: 'Debug'
-  outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
-
-- task: XamarinAndroid@1
-  displayName: 'Build Xamarin.Android project MasterDetailTabbed.Android.csproj'
-  inputs:
-    projectFile: 'MasterDetailTabbed/MasterDetailTabbed.Android/MasterDetailTabbed.Android.csproj'
-    outputDirectory: '$(outputDirectory)'
-    configuration: '$(buildConfiguration)'
+  - task: XamarinAndroid@1
+    displayName: 'Build Xamarin.Android project MasterDetailTabbed.Android.csproj'
+    inputs:
+      projectFile: 'MasterDetailTabbed/MasterDetailTabbed.Android/MasterDetailTabbed.Android.csproj'
+      outputDirectory: '$(outputDirectory)'
+      configuration: '$(buildConfiguration)'
