@@ -21,6 +21,6 @@ steps:
 - task: XamariniOS@2
   inputs:
     solutionFile: '**/*.sln'
-    configuration: 'Release'
+    configuration: 'Debug'
     buildForSimulator: true
     packageApp: false
