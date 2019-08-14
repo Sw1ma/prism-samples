@@ -1,46 +1,26 @@
-# Xamarin.Android
-# Build a Xamarin.Android project.
 # Add steps that test, sign, and distribute an app, save build artifacts, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/xamarin
 
+trigger: none
+#- master
+
+pool:
+  vmImage: 'macos-latest'
+
 variables:
-  buildConfiguration: 'Debug'
+  buildConfiguration: 'Release'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
-trigger: 
-  batch: true
-  branches:
-    include:
-    - master
+steps:
+- task: NuGetToolInstaller@1
 
-  paths:
-    include:
-    - MasterDetailTabbed/*
- 
-jobs:
-- job: androidSample
-  displayName: MasterDetail with TabbedPage Android App    
-  pool:
-    vmImage: 'macos-latest'
-    demands:
-    - MSBuild
-    - Xamarin.Android
-    - JDK
-    - AndroidSDK
+- task: NuGetCommand@2
+  inputs:
+    command: 'restore'
+    restoreSolution: '**/*.sln'
 
-  workspace:
-    clean: all
-  
-  steps:
-  - template: set-runtime.yml
-
-  - template: prepare-build.yml
-    parameters:
-      solution: MasterDetailTabbed/MasterDetailTabbed.sln
-
-  - task: XamarinAndroid@1
-    displayName: 'Build Xamarin.Android project MasterDetailTabbed.Android.csproj'
-    inputs:
-      projectFile: 'MasterDetailTabbed/MasterDetailTabbed.Android/MasterDetailTabbed.Android.csproj'
-      outputDirectory: '$(outputDirectory)'
-      configuration: '$(buildConfiguration)'
+- task: XamarinAndroid@1
+  inputs:
+    projectFile: '**/*droid*.csproj'
+    outputDirectory: '$(outputDirectory)'
+    configuration: '$(buildConfiguration)'
