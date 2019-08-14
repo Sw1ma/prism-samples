@@ -12,12 +12,12 @@ using System;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class BaseViewModel : ObservableObject, IInitialize, IDestructible
+    public class ViewModelBase : ObservableObject, IInitialize, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
         protected INavigationParameters Parameters { get; set; }
 
-        public BaseViewModel(INavigationService navigationService)
+        public ViewModelBase(INavigationService navigationService)
         {
             NavigationService = navigationService;
         }

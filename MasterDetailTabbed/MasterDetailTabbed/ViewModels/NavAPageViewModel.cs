@@ -5,7 +5,7 @@ using System;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class NavAPageViewModel : BaseViewModel, IPageLifecycleAware
+    public class NavAPageViewModel : ViewModelBase, IPageLifecycleAware
     {
         public NavAPageViewModel(INavigationService navigationService) : base(navigationService)
         {

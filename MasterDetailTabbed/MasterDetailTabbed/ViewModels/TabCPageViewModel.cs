@@ -2,7 +2,7 @@
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class TabCPageViewModel : BaseViewModel
+    public class TabCPageViewModel : ViewModelBase
     {
         public TabCPageViewModel(INavigationService navigationService) : base(navigationService)
         {

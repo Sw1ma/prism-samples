@@ -9,8 +9,20 @@
             Title="{Binding Title}">
 
     <TabbedPage.Children>
-        <local:TabAPage Title="Tab A" />
-        <local:TabBPage Title="Tab B"/>
-        <local:TabCPage Title="Tab C"/>
+        <NavigationPage Title="Tab A">
+            <x:Arguments>
+                <local:TabAPage />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Tab B">
+            <x:Arguments>
+                <local:TabBPage />
+            </x:Arguments>
+        </NavigationPage>
+        <NavigationPage Title="Tab C">
+            <x:Arguments>
+                <local:TabCPage />
+            </x:Arguments>
+        </NavigationPage>
     </TabbedPage.Children>
 </TabbedPage>

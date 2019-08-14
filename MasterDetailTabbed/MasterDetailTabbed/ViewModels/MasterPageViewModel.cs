@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class MasterPageViewModel : BaseViewModel, IPageLifecycleAware
+    public class MasterPageViewModel : ViewModelBase, IPageLifecycleAware
     {
         public MasterPageViewModel(INavigationService navigationService) : base(navigationService)
         {
@@ -24,11 +24,14 @@ namespace MasterDetailTabbed.ViewModels
 
         private async void Navigate(string target)
         {
+            // View path of current page.
             var path = NavigationService.GetNavigationUriPath();
 
-            var result = await base.NavigationService.NavigateAsync(target);
+            var result = await NavigationService.NavigateAsync(target);
             if (!result.Success)
-            { }
+            {
+                throw new System.Exception(result.Exception.Message);
+            }
         }
 
         public void OnAppearing()
@@ -38,14 +41,14 @@ namespace MasterDetailTabbed.ViewModels
 
             var items = new List<NavItem>()
             {
-                new NavItem { Title = "Tab A", Target = "Navigation/Tabbed?selectedTab=TabA" },
-                new NavItem { Title = "Tab B", Target = "Navigation/Tabbed?selectedTab=TabB" },
-                new NavItem { Title = "Tab C", Target = "Navigation/Tabbed?selectedTab=TabC" },
-                new NavItem { Title = "Tab, Page A", Target = "Navigation/Tabbed/PageA" },
-                new NavItem { Title = "Tab, Page B", Target = "Navigation/Tabbed/PageB" },
-                new NavItem { Title = "Tab, Page A/B", Target = "Navigation/Tabbed/PageA/PageB" },
-                new NavItem { Title = "Tab, Page A/B/A", Target = "Navigation/Tabbed/PageA/PageB/PageA" },
-                new NavItem { Title = "Nav Page A", Target = "Navigation/PageA?args=false" }
+                new NavItem { Title = "Tab A", Target = "Tabbed?selectedTab=TabA" },
+                new NavItem { Title = "Tab B", Target = "Tabbed?selectedTab=TabB" },
+                new NavItem { Title = "Tab C", Target = "Tabbed?selectedTab=TabC" },
+                new NavItem { Title = "Tab, Page A", Target = "Tabbed/PageA" },
+                new NavItem { Title = "Tab, Page B", Target = "Tabbed/PageB" },
+                new NavItem { Title = "Tab, Page A/B", Target = "Tabbed/PageA/PageB" },
+                new NavItem { Title = "Tab, Page A/B/A", Target = "Tabbed/PageA/PageB/PageA" },
+                new NavItem { Title = "Nav Page A w/ args", Target = "Navigation/PageA?args=false" }
             };
 
             MenuItems = new List<NavItem>(items);

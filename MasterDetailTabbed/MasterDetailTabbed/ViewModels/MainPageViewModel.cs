@@ -5,9 +5,11 @@ using System.Text;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class MainPageViewModel : BaseViewModel
+    public class MainPageViewModel : ViewModelBase
     {
         public MainPageViewModel(INavigationService navigationService) : base(navigationService)
-        { }
+        {
+            Title = "Tabbed";
+        }
     }
 }

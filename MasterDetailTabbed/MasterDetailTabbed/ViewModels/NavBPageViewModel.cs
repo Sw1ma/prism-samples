@@ -3,7 +3,7 @@ using Prism.Navigation;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class NavBPageViewModel : BaseViewModel
+    public class NavBPageViewModel : ViewModelBase
     {
         public NavBPageViewModel(INavigationService navigationService) : base(navigationService)
         {
