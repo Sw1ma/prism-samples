@@ -3,11 +3,9 @@ trigger:
   branches:
     include:
     - master
-    - devOps
   paths:
     include:
-    - Sandbox/*
-    - Source/*
+    - MasterDetailTabbed/*
 
 stages:
 - stage: masterDetailTabbed
