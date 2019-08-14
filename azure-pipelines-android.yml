@@ -18,7 +18,9 @@ steps:
 
 - task: NuGetCommand@2
   inputs:
+    command: 'restore' # Options: restore, pack, push, custom
     restoreSolution: '**/*.sln'
+    noCache: true
 
 - task: XamarinAndroid@1
   inputs:
