@@ -6,7 +6,7 @@ namespace MasterDetailTabbed.ViewModels
     {
         public TabBPageViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Title = "Tab B";
+            //Title = "Tab B";
         }
     }
 }

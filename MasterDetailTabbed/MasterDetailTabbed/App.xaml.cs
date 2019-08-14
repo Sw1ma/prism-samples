@@ -18,7 +18,7 @@ namespace MasterDetailTabbed
             InitializeComponent();
 
             //MainPage = new MasterPage();
-            NavigationService.NavigateAsync("/Master/Tabbed?selectedTab=TabB");
+            NavigationService.NavigateAsync("/Master/Navigation/Tabbed?selectedTab=TabB");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

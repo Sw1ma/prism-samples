@@ -41,13 +41,13 @@ namespace MasterDetailTabbed.ViewModels
 
             var items = new List<NavItem>()
             {
-                new NavItem { Title = "Tab A", Target = "Tabbed?selectedTab=TabA" },
-                new NavItem { Title = "Tab B", Target = "Tabbed?selectedTab=TabB" },
-                new NavItem { Title = "Tab C", Target = "Tabbed?selectedTab=TabC" },
-                new NavItem { Title = "Tab, Page A", Target = "Tabbed/PageA" },
-                new NavItem { Title = "Tab, Page B", Target = "Tabbed/PageB" },
-                new NavItem { Title = "Tab, Page A/B", Target = "Tabbed/PageA/PageB" },
-                new NavItem { Title = "Tab, Page A/B/A", Target = "Tabbed/PageA/PageB/PageA" },
+                new NavItem { Title = "Tab A", Target = "Navigation/Tabbed?selectedTab=TabA" },
+                new NavItem { Title = "Tab B", Target = "Navigation/Tabbed?selectedTab=TabB" },
+                new NavItem { Title = "Tab C", Target = "Navigation/Tabbed?selectedTab=TabC" },
+                new NavItem { Title = "Tab, Page A", Target = "Navigation/Tabbed/PageA" },
+                new NavItem { Title = "Tab, Page B", Target = "Navigation/Tabbed/PageB" },
+                new NavItem { Title = "Tab, Page A/B", Target = "Navigation/Tabbed/PageA/PageB" },
+                new NavItem { Title = "Tab, Page A/B/A", Target = "Navigation/Tabbed/PageA/PageB/PageA" },
                 new NavItem { Title = "Nav Page A w/ args", Target = "Navigation/PageA?args=false" }
             };
 

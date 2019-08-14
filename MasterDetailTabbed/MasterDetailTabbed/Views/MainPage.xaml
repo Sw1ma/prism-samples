@@ -5,24 +5,11 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:local="clr-namespace:MasterDetailTabbed.Views"
-            x:Class="MasterDetailTabbed.Views.MainPage"
-            Title="{Binding Title}">
+            x:Class="MasterDetailTabbed.Views.MainPage">
 
     <TabbedPage.Children>
-        <NavigationPage Title="Tab A">
-            <x:Arguments>
-                <local:TabAPage />
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Tab B">
-            <x:Arguments>
-                <local:TabBPage />
-            </x:Arguments>
-        </NavigationPage>
-        <NavigationPage Title="Tab C">
-            <x:Arguments>
-                <local:TabCPage />
-            </x:Arguments>
-        </NavigationPage>
+        <local:TabAPage Title="Tab A" />
+        <local:TabBPage Title="Tab B" />
+        <local:TabCPage Title="Tab C" />
     </TabbedPage.Children>
 </TabbedPage>

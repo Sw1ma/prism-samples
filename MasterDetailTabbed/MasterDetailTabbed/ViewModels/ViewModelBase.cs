@@ -1,4 +1,4 @@
-﻿using MasterDetailTabbed.Mvvm;
+﻿using Prism.Mvvm;
 using Prism.Navigation;
 using System;
 
@@ -12,7 +12,7 @@ using System;
 
 namespace MasterDetailTabbed.ViewModels
 {
-    public class ViewModelBase : ObservableObject, IInitialize, IDestructible
+    public class ViewModelBase : BindableBase, IInitialize, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
         protected INavigationParameters Parameters { get; set; }
@@ -43,7 +43,7 @@ namespace MasterDetailTabbed.ViewModels
             set
             {
                 SetProperty(ref _isBusy, value, onChanged: ()
-                    => OnPropertyChanged(nameof(IsNotBusy)));
+                    => RaisePropertyChanged(nameof(IsNotBusy)));
             }
         }
         public bool IsNotBusy
