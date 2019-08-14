@@ -8,11 +8,11 @@ pool:
   vmImage: 'macos-latest'
 
 variables:
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
   outputDirectory: '$(build.binariesDirectory)/$(buildConfiguration)'
 
 steps:
-- template: set-runtime.yml
+#- template: set-runtime.yml
   
 - task: NuGetToolInstaller@1
 
