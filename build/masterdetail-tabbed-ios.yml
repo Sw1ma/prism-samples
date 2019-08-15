@@ -15,7 +15,7 @@ pool:
   vmImage: 'macos-latest'
 
 steps:
-#- steps/template: set-runtime.yml
+- template: steps/set-runtime.yml
 
 - task: NuGetToolInstaller@1
 
