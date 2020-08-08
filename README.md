@@ -10,8 +10,8 @@ This repository is also used to explore and learn [GitHub features](https://gith
 ## Build Status
 Build Server | Type | Platform | Status
 ------------ | ---- | -------- | ------
-DevOps | Build | Android | [![Build Status](https://dev.azure.com/XlpinaDev/Prism.Samples/_apis/build/status/droid%20prism-samples%20on%20github?branchName=master)](https://dev.azure.com/XlpinaDev/Prism.Samples/_build/latest?definitionId=6&branchName=master)
-DevOps | Build | iOS | [![Build Status](https://dev.azure.com/XlpinaDev/Prism.Samples/_apis/build/status/ios%20prism-samples%20on%20github?branchName=master)](https://dev.azure.com/XlpinaDev/Prism.Samples/_build/latest?definitionId=7&branchName=master)
+DevOps | Build | Android | [![Build Status](https://dev.azure.com/XlpinaDevOps/Prism.Samples/_apis/build/status/droid%20prism-samples%20on%20github?branchName=master)](https://dev.azure.com/XlpinaDevOps/Prism.Samples/_build/latest?definitionId=6&branchName=master)
+DevOps | Build | iOS | [![Build Status](https://dev.azure.com/XlpinaDevOps/Prism.Samples/_apis/build/status/ios%20prism-samples%20on%20github?branchName=master)](https://dev.azure.com/XlpinaDevOps/Prism.Samples/_build/latest?definitionId=7&branchName=master)
 
 ## Releases
 * [v1.0.0 - Preview](https://github.com/Sw1ma/prism-samples/releases/tag/1.0.0-pre)  
